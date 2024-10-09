@@ -18,12 +18,17 @@ func main() {
 		resolve(&data, time[i], distance[i])
 	}
 	fmt.Println(data.TotalMul)
+
+	//part 2
+	data.TotalMul = 1
+	resolve(&data, 53916768, 250133010811025)
+
+	fmt.Println(data.TotalMul)
 }
 
 func resolve(data *Data, time int, distance int) {
 
 	sum := 0
-	//peak := false
 
 	//hold button
 	for timeHeld := 1; timeHeld < time; timeHeld++ {
@@ -35,6 +40,5 @@ func resolve(data *Data, time int, distance int) {
 		}
 
 	}
-
 	data.TotalMul = data.TotalMul * sum
 }
