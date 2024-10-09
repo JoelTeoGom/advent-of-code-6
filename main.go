@@ -32,34 +32,24 @@ func main() {
 	fmt.Println(data.TotalMul)
 
 }
-
 func resolve(data *Data, time int, distance int) {
-
-	var ways int
-	newDistance, newDistance2 := 0, 0
+	sum := 0
+	max := 0
 	//hold button
 	for timeHeld := 1; timeHeld < time; timeHeld++ {
+		remainTime := time - timeHeld
+		newDistance := timeHeld * remainTime
+		if newDistance >= distance {
 
-		if newDistance < distance {
-			//timeheld == speed1
-			remainTime := time - timeHeld
-			newDistance = timeHeld * remainTime
+			if newDistance > max {
+				max = newDistance
+				sum++
+			} else {
+				data.TotalMul = (sum * 2) - 1
+				return
+			}
 
 		}
-
-		if newDistance2 < distance {
-
-			timeheld2 := time - timeHeld
-			remainTime2 := time - timeheld2
-			newDistance2 = timeheld2 * remainTime2
-		}
-
-		if newDistance >= distance && newDistance2 >= distance {
-			new
-			ways = newDistance2 - newDistance
-			break
-		}
-
 	}
-	data.TotalMul = data.TotalMul * ways
+
 }
